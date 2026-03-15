@@ -21,5 +21,3 @@ dependency_overrides:
 
 flutter:
   uses-material-design: true
-  assets:
-    - .env.local

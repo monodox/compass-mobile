@@ -14,10 +14,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   try {
+    // Try to load env file, but don't fail if it doesn't exist
     await dotenv.load(fileName: '.env.local');
-    
-    final supabaseUrl = dotenv.env['SUPABASE_URL'];
-    final supabaseKey = dotenv.env['SUPABASE_ANON_KEY'];
+  } catch (e) {
+    debugPrint('No .env.local file found, using defaults');
+  }
+  
+  try {
+    final supabaseUrl = dotenv.maybeGet('SUPABASE_URL');
+    final supabaseKey = dotenv.maybeGet('SUPABASE_ANON_KEY');
     
     if (supabaseUrl != null && supabaseUrl.isNotEmpty && 
         supabaseKey != null && supabaseKey.isNotEmpty) {
@@ -25,10 +30,11 @@ void main() async {
         url: supabaseUrl,
         anonKey: supabaseKey,
       );
+    } else {
+      debugPrint('Supabase credentials not configured');
     }
   } catch (e) {
-    // If env file doesn't exist or Supabase init fails, continue without auth
-    debugPrint('Supabase initialization skipped: $e');
+    debugPrint('Supabase initialization failed: $e');
   }
   
   runApp(const MyApp());
