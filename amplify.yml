@@ -3,16 +3,15 @@ frontend:
   phases:
     preBuild:
       commands:
-        - yum install -y git
         - git clone https://github.com/flutter/flutter.git -b stable --depth 1
         - export PATH="$PATH:`pwd`/flutter/bin"
         - flutter config --no-analytics --no-cli-animations
-        - flutter doctor -v
+        - flutter --version
         - flutter pub get
     build:
       commands:
         - export PATH="$PATH:`pwd`/flutter/bin"
-        - flutter build web --release --web-renderer html --no-tree-shake-icons
+        - flutter build web --release --web-renderer html
   artifacts:
     baseDirectory: build/web
     files:
