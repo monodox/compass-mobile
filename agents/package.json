@@ -1,0 +1,28 @@
+{
+  "name": "thinklab-agents",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npx adk web src/index.ts",
+    "start": "node --loader ts-node/esm src/index.ts",
+    "core": "npx adk web src/agents/core.agent.ts",
+    "tutor": "npx adk web src/agents/tutor.agent.ts",
+    "vision": "npx adk web src/agents/vision.agent.ts",
+    "voice": "npx adk web src/agents/voice.agent.ts",
+    "memory": "npx adk web src/agents/memory.agent.ts"
+  },
+  "dependencies": {
+    "@google/adk": "latest",
+    "dotenv": "^16.4.0",
+    "express": "^4.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@google/adk-devtools": "latest",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}
