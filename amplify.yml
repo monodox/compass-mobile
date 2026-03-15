@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - git clone https://github.com/flutter/flutter.git -b stable
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter precache
+        - flutter doctor
+        - echo "SUPABASE_URL=$SUPABASE_URL" > .env.local
+        - echo "SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY" >> .env.local
+        - echo "GEMINI_API_KEY=$GEMINI_API_KEY" >> .env.local
+    build:
+      commands:
+        - flutter build web --release --web-renderer canvaskit
+  artifacts:
+    baseDirectory: build/web
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - flutter/**/*
