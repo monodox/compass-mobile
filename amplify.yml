@@ -3,18 +3,16 @@ frontend:
   phases:
     preBuild:
       commands:
+        - yum install -y git
         - git clone https://github.com/flutter/flutter.git -b stable --depth 1
         - export PATH="$PATH:`pwd`/flutter/bin"
-        - flutter config --no-analytics
-        - flutter --version
-        - echo "SUPABASE_URL=$SUPABASE_URL" > .env.local
-        - echo "SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY" >> .env.local
-        - echo "GEMINI_API_KEY=$GEMINI_API_KEY" >> .env.local
+        - flutter config --no-analytics --no-cli-animations
+        - flutter doctor -v
         - flutter pub get
     build:
       commands:
         - export PATH="$PATH:`pwd`/flutter/bin"
-        - flutter build web --release --web-renderer html
+        - flutter build web --release --web-renderer html --no-tree-shake-icons
   artifacts:
     baseDirectory: build/web
     files:
@@ -22,4 +20,3 @@ frontend:
   cache:
     paths:
       - flutter/**/*
-      - .pub-cache/**/*
