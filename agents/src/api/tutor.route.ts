@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { tutorAgent } from '../agents/tutor.agent.js';
+import { csrfProtection } from '../middleware/csrf.middleware.js';
 
 const router = Router();
 
@@ -7,7 +8,7 @@ const router = Router();
  * POST /api/tutor/explain
  * Body: { concept: string, level?: 'beginner' | 'intermediate' | 'advanced', userId?: string }
  */
-router.post('/explain', async (req: Request, res: Response) => {
+router.post('/explain', csrfProtection, async (req: Request, res: Response) => {
   const { concept, level = 'intermediate', userId } = req.body as {
     concept: string;
     level?: string;
@@ -37,7 +38,7 @@ router.post('/explain', async (req: Request, res: Response) => {
  * POST /api/tutor/followup
  * Body: { topic: string }
  */
-router.post('/followup', async (req: Request, res: Response) => {
+router.post('/followup', csrfProtection, async (req: Request, res: Response) => {
   const { topic } = req.body as { topic: string };
 
   if (!topic) {

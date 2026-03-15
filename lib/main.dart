@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:thinklab_mobile/pages/app/home.dart';
-import 'package:thinklab_mobile/pages/app/learn.dart';
-import 'package:thinklab_mobile/pages/app/voice/voice_page.dart';
-import 'package:thinklab_mobile/pages/app/visual.dart';
-import 'package:thinklab_mobile/pages/app/memory.dart';
-import 'package:thinklab_mobile/pages/app/agents.dart';
-import 'package:thinklab_mobile/pages/app/settings.dart';
-import 'package:thinklab_mobile/pages/auth/login.dart';
+import 'package:compass/pages/app/home.dart';
+import 'package:compass/pages/app/learn.dart';
+import 'package:compass/pages/app/voice/voice_page.dart';
+import 'package:compass/pages/app/visual.dart';
+import 'package:compass/pages/app/memory.dart';
+import 'package:compass/pages/app/agents.dart';
+import 'package:compass/pages/app/settings.dart';
+import 'package:compass/pages/auth/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ThinkLab',
+      title: 'Compass',
       theme: ThemeData(colorSchemeSeed: Colors.deepPurple, useMaterial3: true),
       home: const _AuthGate(),
     );

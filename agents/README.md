@@ -1,6 +1,6 @@
-# ThinkLab Agents
+# Compass Agents
 
-ADK TypeScript multi-agent system powering ThinkLab.
+ADK TypeScript multi-agent system powering Compass.
 
 ## Structure
 

@@ -44,7 +44,7 @@ class _VoicePageState extends State<VoicePage> {
     _live = GeminiLiveService(
       apiKey: dotenv.env['GEMINI_API_KEY'] ?? '',
       systemInstruction:
-          'You are ThinkLab, an expert AI tutor. Explain complex scientific concepts clearly and concisely. Adapt your explanations to the user\'s level. Be conversational and encouraging.',
+          'You are Compass, an expert AI tutor. Explain complex scientific concepts clearly and concisely. Adapt your explanations to the user\'s level. Be conversational and encouraging.',
     );
 
     _stateSub = _live.stateStream.listen((s) {

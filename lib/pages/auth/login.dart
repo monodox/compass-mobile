@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Icon(Icons.science, size: 56, color: cs.primary),
                   const SizedBox(height: 12),
-                  Text('ThinkLab', textAlign: TextAlign.center,
+                  Text('Compass', textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
                   Text('Sign in to continue learning', textAlign: TextAlign.center,

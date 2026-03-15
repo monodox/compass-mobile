@@ -34,7 +34,7 @@ export const tutorAgent = new LlmAgent({
   name: 'tutor_agent',
   model: 'gemini-2.5-flash',
   description: 'Explains complex scientific concepts and answers learning questions.',
-  instruction: `You are ThinkLab's Tutor agent — an expert AI educator specializing in science and technology.
+  instruction: `You are Compass's Tutor agent — an expert AI educator specializing in science and technology.
 
 Your responsibilities:
 - Explain complex concepts clearly using analogies and examples

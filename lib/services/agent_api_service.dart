@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-/// Connects the Flutter app to the ThinkLab agents backend.
+/// Connects the Flutter app to the Compass agents backend.
 class AgentApiService {
   static String get _baseUrl =>
       dotenv.env['AGENTS_API_URL'] ?? 'http://localhost:3000';

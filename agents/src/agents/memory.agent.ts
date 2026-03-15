@@ -52,8 +52,8 @@ const getPersonalizationContext = new FunctionTool({
 export const memoryAgent = new LlmAgent({
   name: 'memory_agent',
   model: 'gemini-2.5-flash',
-  description: 'Stores and retrieves user learning history to personalize the ThinkLab experience.',
-  instruction: `You are ThinkLab's Memory agent — responsible for learning persistence and personalization.
+  description: 'Stores and retrieves user learning history to personalize the Compass experience.',
+  instruction: `You are Compass's Memory agent — responsible for learning persistence and personalization.
 
 Your responsibilities:
 - Save concepts and summaries after each learning session

@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { voiceAgent } from '../agents/voice.agent.js';
 import { GeminiService } from '../services/gemini.service.js';
+import { csrfProtection } from '../middleware/csrf.middleware.js';
 
 const router = Router();
 
@@ -8,7 +9,7 @@ const router = Router();
  * POST /api/voice/transcript
  * Body: { transcript: string, sessionId?: string }
  */
-router.post('/transcript', async (req: Request, res: Response) => {
+router.post('/transcript', csrfProtection, async (req: Request, res: Response) => {
   const { transcript, sessionId } = req.body as {
     transcript: string;
     sessionId?: string;
@@ -21,11 +22,12 @@ router.post('/transcript', async (req: Request, res: Response) => {
 
   const lower = transcript.toLowerCase();
   const isQuestion =
+    typeof transcript === 'string' && (
     transcript.includes('?') ||
     lower.startsWith('what') ||
     lower.startsWith('how') ||
     lower.startsWith('why') ||
-    lower.startsWith('explain');
+    lower.startsWith('explain'));
 
   try {
     // TODO: invoke voiceAgent.run() when ADK runner is configured
@@ -47,7 +49,7 @@ router.post('/transcript', async (req: Request, res: Response) => {
  */
 router.get('/live-config', (_req: Request, res: Response) => {
   const setup = GeminiService.buildSetupPayload(
-    "You are ThinkLab's Voice agent. Explain concepts conversationally and naturally.",
+    "You are Compass's Voice agent. Explain concepts conversationally and naturally.",
   );
   res.json({
     wsUrl: GeminiService.liveApiUrl(),

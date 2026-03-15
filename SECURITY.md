@@ -10,7 +10,7 @@
 
 If you discover a security vulnerability, please do **not** open a public issue.
 
-Instead, report it privately by emailing: **security@thinklab.app**
+Instead, report it privately by emailing: **security@compass.app**
 
 Include:
 - A description of the vulnerability

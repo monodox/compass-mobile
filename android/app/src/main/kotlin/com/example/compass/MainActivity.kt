@@ -1,4 +1,4 @@
-package com.example.compass_mobile
+package com.example.compass
 
 import io.flutter.embedding.android.FlutterActivity
 

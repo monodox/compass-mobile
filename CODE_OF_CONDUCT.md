@@ -2,7 +2,7 @@
 
 ## Our Pledge
 
-We are committed to making participation in ThinkLab an open, welcoming, and harassment-free experience for everyone, regardless of age, background, disability, ethnicity, gender identity, level of experience, nationality, or religion.
+We are committed to making participation in Compass an open, welcoming, and harassment-free experience for everyone, regardless of age, background, disability, ethnicity, gender identity, level of experience, nationality, or religion.
 
 ## Our Standards
 
@@ -20,7 +20,7 @@ Unacceptable behavior includes:
 
 ## Enforcement
 
-Violations may be reported to **conduct@thinklab.app**. All reports will be reviewed and investigated. Maintainers have the right to remove, edit, or reject contributions that violate this Code of Conduct.
+Violations may be reported to **conduct@compass.app**. All reports will be reviewed and investigated. Maintainers have the right to remove, edit, or reject contributions that violate this Code of Conduct.
 
 ## Attribution
 

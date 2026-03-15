@@ -21,11 +21,11 @@ class _CookiesPageState extends State<CookiesPage> {
         padding: const EdgeInsets.all(20),
         children: [
           LegalSection('What Are Cookies',
-              'Cookies and similar local storage mechanisms help ThinkLab remember your preferences and improve your experience.'),
+              'Cookies and similar local storage mechanisms help Compass remember your preferences and improve your experience.'),
           LegalSection('Essential',
               'Required for the app to function. These cannot be disabled. They store session state and authentication tokens.'),
           LegalSection('Analytics',
-              'Help us understand how users interact with ThinkLab so we can improve the platform.'),
+              'Help us understand how users interact with Compass so we can improve the platform.'),
           LegalSection('Preference',
               'Remember your settings such as language, voice preferences, and UI configuration.'),
           Padding(
@@ -53,7 +53,7 @@ class _CookiesPageState extends State<CookiesPage> {
               ],
             ),
           ),
-          LegalSection('Contact', 'Cookie questions: privacy@thinklab.app'),
+          LegalSection('Contact', 'Cookie questions: privacy@compass.app'),
           LegalLastUpdated('March 2026'),
         ],
       ),

@@ -44,8 +44,8 @@ const generateVoiceResponse = new FunctionTool({
 export const voiceAgent = new LlmAgent({
   name: 'voice_agent',
   model: 'gemini-2.5-flash',
-  description: 'Handles real-time voice interactions and speech processing for ThinkLab.',
-  instruction: `You are ThinkLab's Voice agent — optimized for natural spoken conversation.
+  description: 'Handles real-time voice interactions and speech processing for Compass.',
+  instruction: `You are Compass's Voice agent — optimized for natural spoken conversation.
 
 Your responsibilities:
 - Process voice transcripts from users

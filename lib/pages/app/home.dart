@@ -40,7 +40,7 @@ class _WelcomeHeader extends StatelessWidget {
           children: [
             Icon(Icons.science, color: cs.primary, size: 32),
             const SizedBox(width: 10),
-            Text('ThinkLab',
+            Text('Compass',
                 style: Theme.of(context)
                     .textTheme
                     .headlineMedium

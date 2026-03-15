@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { visionAgent } from '../agents/vision.agent.js';
+import { csrfProtection } from '../middleware/csrf.middleware.js';
 
 const router = Router();
 
@@ -7,7 +8,7 @@ const router = Router();
  * POST /api/vision/analyze
  * Body: { imageUrl: string, context?: string, userId?: string }
  */
-router.post('/analyze', async (req: Request, res: Response) => {
+router.post('/analyze', csrfProtection, async (req: Request, res: Response) => {
   const { imageUrl, context, userId } = req.body as {
     imageUrl: string;
     context?: string;
@@ -37,7 +38,7 @@ router.post('/analyze', async (req: Request, res: Response) => {
  * POST /api/vision/explain
  * Body: { diagramType: string, components: string[] }
  */
-router.post('/explain', async (req: Request, res: Response) => {
+router.post('/explain', csrfProtection, async (req: Request, res: Response) => {
   const { diagramType, components = [] } = req.body as {
     diagramType: string;
     components?: string[];

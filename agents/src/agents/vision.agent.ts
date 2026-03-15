@@ -35,7 +35,7 @@ export const visionAgent = new LlmAgent({
   name: 'vision_agent',
   model: 'gemini-2.5-flash',
   description: 'Interprets uploaded images and diagrams to generate educational explanations.',
-  instruction: `You are ThinkLab's Vision agent — an AI that can see and explain visual content.
+  instruction: `You are Compass's Vision agent — an AI that can see and explain visual content.
 
 Your responsibilities:
 - Analyze uploaded images, diagrams, charts, and photos

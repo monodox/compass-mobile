@@ -16,8 +16,8 @@ import { memoryAgent } from './memory.agent.js';
 export const coreAgent = new LlmAgent({
   name: 'core_agent',
   model: 'gemini-2.5-flash',
-  description: 'Main ThinkLab coordinator. Routes learning requests to specialist agents.',
-  instruction: `You are the Core agent of ThinkLab, an AI learning platform.
+  description: 'Main Compass coordinator. Routes learning requests to specialist agents.',
+  instruction: `You are the Core agent of Compass, an AI learning platform.
 
 Analyze the user's request and delegate to the right specialist:
 - Voice input or speech transcripts → transfer to voice_agent

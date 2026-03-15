@@ -127,7 +127,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           _SectionHeader('About'),
           const ListTile(title: Text('Version'), trailing: Text('1.0.0')),
-          const ListTile(title: Text('Platform'), trailing: Text('ThinkLab Mobile')),
+          const ListTile(title: Text('Platform'), trailing: Text('Compass')),
           _SectionHeader('Legal'),
           ListTile(
             leading: const Icon(Icons.description_outlined),

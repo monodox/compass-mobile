@@ -4,6 +4,7 @@ import tutorRouter from './api/tutor.route.js';
 import visionRouter from './api/vision.route.js';
 import voiceRouter from './api/voice.route.js';
 import { routeToAgent } from './orchestrator/agent_router.js';
+import { csrfProtection } from './middleware/csrf.middleware.js';
 
 const app = express();
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use('/api/vision', visionRouter);
 app.use('/api/voice', voiceRouter);
 
 // ── Orchestrator ──────────────────────────────────────────────────────────────
-app.post('/api/route', (req, res) => {
+app.post('/api/route', csrfProtection, (req, res) => {
   const { intent } = req.body as { intent: string };
   if (!intent) {
     res.status(400).json({ error: 'intent is required' });
@@ -31,12 +32,12 @@ app.post('/api/route', (req, res) => {
 
 // ── Health ────────────────────────────────────────────────────────────────────
 app.get('/health', (_req, res) => {
-  res.json({ status: 'ok', service: 'thinklab-agents' });
+  res.json({ status: 'ok', service: 'compass-agents' });
 });
 
 const PORT = process.env.PORT ?? 3000;
 app.listen(PORT, () => {
-  console.log(`ThinkLab Agents running on http://localhost:${PORT}`);
+  console.log(`Compass Agents running on http://localhost:${PORT}`);
 });
 
 export default app;
