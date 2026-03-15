@@ -12,11 +12,25 @@ import 'package:compass/pages/auth/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env.local');
-  await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL']!,
-    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
-  );
+  
+  try {
+    await dotenv.load(fileName: '.env.local');
+    
+    final supabaseUrl = dotenv.env['SUPABASE_URL'];
+    final supabaseKey = dotenv.env['SUPABASE_ANON_KEY'];
+    
+    if (supabaseUrl != null && supabaseUrl.isNotEmpty && 
+        supabaseKey != null && supabaseKey.isNotEmpty) {
+      await Supabase.initialize(
+        url: supabaseUrl,
+        anonKey: supabaseKey,
+      );
+    }
+  } catch (e) {
+    // If env file doesn't exist or Supabase init fails, continue without auth
+    debugPrint('Supabase initialization skipped: $e');
+  }
+  
   runApp(const MyApp());
 }
 
@@ -38,6 +52,11 @@ class _AuthGate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // If Supabase is not initialized, skip auth and go directly to app
+    if (!Supabase.instance.isInitialized) {
+      return const MainShell();
+    }
+    
     return StreamBuilder<AuthState>(
       stream: Supabase.instance.client.auth.onAuthStateChange,
       builder: (context, snapshot) {
