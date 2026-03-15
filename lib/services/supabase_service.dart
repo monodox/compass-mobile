@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'dart:typed_data';
 
 /// Central access point for Supabase client
 class SupabaseService {
@@ -53,7 +54,7 @@ class SupabaseService {
 
   /// Upload an image to the 'visual-lab' bucket
   static Future<String> uploadImage(String path, List<int> bytes) async {
-    await storage.from('visual-lab').uploadBinary(path, bytes);
+    await storage.from('visual-lab').uploadBinary(path, Uint8List.fromList(bytes));
     return storage.from('visual-lab').getPublicUrl(path);
   }
 
